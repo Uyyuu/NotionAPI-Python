@@ -3,33 +3,37 @@
 ```bash
 .
 ├── Notion                     #ローカル用のディレクトリ
-│   ├── EntryData.py           #NotiionAPIのリクエストに適したデータ形式に変換するクラス
-│   ├── Notion_DB_Insert.py    #Notionのデータベースにデータ登録するための関数モジュール
+│   ├── EntryData.py           
+│   ├── Notion_DB_Insert.py    
 │   ├── __init__.py
 │   └── settings　　　　　            ⭐️　.envファイル追加するディレクトリ
 │       ├── __init__.py
 │       └── config.py
 │       └── .env              ⭐️　リポジトリにはあげてないので各自準備してください．
 │          
-├── Notion_GoogleCplab        　　#GoogleColab用
-│   ├── EntryData.py           #NotiionAPIのリクエストに適したデータ形式に変換するクラス
-│   ├── Notion_DB_Insert.py    #Notionのデータベースにデータ登録するための関数モジュール
+├── Notion_GoogleColab        　　#GoogleColab用
+│   ├── EntryData.py           
+│   ├── Notion_DB_Insert.py    
 │   ├── __init__.py
 ├── sample.json
 ├── demo.py
 ```
 
-### 各自準備して欲しいこと
+### 準備
 - ローカルで動かす場合
+  
 Notionディレクトリ下のsettingsディレクトリ内に.envファイルを作って以下の内容を記述する．
 ```.env
-NOTION_API_KEY = "伝えたAPIキー"
-DATABASE_ID = "伝えたデータベースID"
-
+NOTION_API_KEY = "APIキー"
+DATABASE_ID = "データベースID"
 ```
 
+- Google Colabで動かす場合
+  
+    - Notion_GoogleColab/EntryData.py内のDATABASE_IDにデータベースIDを設定<br>
+    - Notion_GoogleColab/Notion_DB_Insert.py内のNOTION_API_KEYにAPIキーを設定<br>
+
 ### 環境構築
-各自好きなようにやってください．
 
 必要なパッケージはrequirements.txtに記載．
 
@@ -55,9 +59,9 @@ from Notion_GoogleColab import Notion_DB_Insert
 ```
 
 ### 使い方
-- ローカル，colabともに同様です．
-- Notionディレクトリ内のNotion_DB_Insertモジュールのcreate_notion_entry関数を使用してデータベースに情報を追加できます．
-- 以下のコードコピーして送信データ型の部分の辞書のバリューの部分を登録したい内容に変えればOKです．
+- ローカル，colabともに同様
+- Notionディレクトリ内のNotion_DB_Insertモジュールのcreate_notion_entry関数を使用してデータベースに情報を追加
+- 以下のコードコピーして送信データ型の部分の辞書のバリューの部分を登録したい内容に変える
 ```python
 from Notion import Notion_DB_Insert       #ローカルの場合
 from Notion_GoogleColab import Notion_DB_Insert       #GoogleColabの場合
